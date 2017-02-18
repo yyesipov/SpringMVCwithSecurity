@@ -47,7 +47,7 @@
     </style>
 </head>
 <body>
-<a href="../../index.jsp">Back to Main menu</a>
+<a href="../../welcome">Back to Main menu</a>
 
 <br>
 <br>

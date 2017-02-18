@@ -14,7 +14,7 @@
 
     <title>Welcome</title>
 
-    <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${contextPath}/webResources/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -28,10 +28,15 @@
         <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a>
         </h2>
 
+        <h3>GoJava4 Group #8 presents</h3>
+        <br/>
+        <a href="/products" target="_blank">Products list</a>
+        <br>
+
     </c:if>
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+<script src="${contextPath}/webResources/js/bootstrap.min.js"></script>
 </body>
 </html>
