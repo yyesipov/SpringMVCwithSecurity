@@ -1,3 +1,12 @@
+-- Table: products
+CREATE TABLE products (
+  id                   SERIAL                 NOT NULL PRIMARY KEY,
+  product_name         CHARACTER VARYING(250) NOT NULL,
+  product_manufacturer CHARACTER VARYING(250) NOT NULL,
+  product_price        INTEGER                NOT NULL,
+  product_description  CHARACTER VARYING(250)
+);
+
 -- Table: users
 CREATE TABLE users (
   id       SERIAL       NOT NULL PRIMARY KEY,
