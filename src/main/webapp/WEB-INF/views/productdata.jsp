@@ -5,7 +5,7 @@
 
 <html>
 <head>
-    <title>Product Page</title>
+    <title>Product Details</title>
 
     <style type="text/css">
         .tg {

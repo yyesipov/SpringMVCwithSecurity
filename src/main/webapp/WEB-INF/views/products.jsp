@@ -1,8 +1,9 @@
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page session="false" %>
 <html>
 <head>
@@ -62,8 +63,12 @@
             <th width="120">Manufacturer</th>
             <th width="120">Price</th>
             <th width="250">Description</th>
-            <th width="60">Edit</th>
-            <th width="60">Delete</th>
+            <sec:authorize access="hasRole('ADMIN')">
+                <th width="60">Edit</th>
+            </sec:authorize>
+            <sec:authorize access="hasRole('ADMIN')">
+                <th width="60">Delete</th>
+            </sec:authorize>
         </tr>
         <c:forEach items="${listProducts}" var="product">
             <tr>
@@ -72,16 +77,22 @@
                 <td>${product.productManufacturer}</td>
                 <td>${product.price/100}</td>
                 <td>${product.description}</td>
-                <td><a href="<c:url value='/edit/${product.id}'/>">Edit</a></td>
-                <td><a href="<c:url value='/remove/${product.id}'/>">Delete</a></td>
+                <sec:authorize access="hasRole('ADMIN')">
+                    <td><a href="<c:url value='/edit/${product.id}'/>">Edit</a></td>
+                </sec:authorize>
+                <sec:authorize access="hasRole('ADMIN')">
+                    <td><a href="<c:url value='/remove/${product.id}'/>">Delete</a></td>
+                </sec:authorize>
             </tr>
         </c:forEach>
     </table>
 </c:if>
 
-<h1>Add a Product</h1>
+<sec:authorize access="hasRole('ADMIN')">
 
-<c:url var="addAction" value="/products/add"/>
+    <h1>Add a Product</h1>
+
+    <c:url var="addAction" value="/products/add"/>
 
     <form:form action="${addAction}" commandName="product">
         <table>
@@ -152,7 +163,7 @@
             </tr>
         </table>
     </form:form>
-
+</sec:authorize>
 
 
 </body>

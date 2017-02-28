@@ -30,7 +30,7 @@
 
         <h3>GoJava4 Group #8 presents</h3>
         <br/>
-        <a href="/products" target="_blank">Products list</a>
+        <a href="<c:url value='/products' />">Products list</a>
         <br>
 
     </c:if>
